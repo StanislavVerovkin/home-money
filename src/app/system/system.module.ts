@@ -7,8 +7,11 @@ import {HistoryPageComponent} from './history-page/history-page.component';
 import {PlanningPageComponent} from './planning-page/planning-page.component';
 import {RecordsPageComponent} from './records-page/records-page.component';
 import {SystemRoutingModule} from './system-routing.module';
-import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
-import { HeaderComponent } from './shared/components/header/header.component';
+import {SidebarComponent} from './shared/components/sidebar/sidebar.component';
+import {HeaderComponent} from './shared/components/header/header.component';
+import {BillCardsComponent} from './bill-page/bill-cards/bill-cards.component';
+import {CurrencyCardComponent} from './bill-page/currency-card/currency-card.component';
+import {BillService} from './shared/services/bill.service';
 
 @NgModule({
     imports: [
@@ -23,7 +26,12 @@ import { HeaderComponent } from './shared/components/header/header.component';
         PlanningPageComponent,
         RecordsPageComponent,
         SidebarComponent,
-        HeaderComponent
+        HeaderComponent,
+        BillCardsComponent,
+        CurrencyCardComponent,
+    ],
+    providers: [
+        BillService
     ]
 })
 export class SystemModule {

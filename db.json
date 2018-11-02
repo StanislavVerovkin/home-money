@@ -6,5 +6,9 @@
       "password": 111111,
       "name": "Admin"
     }
-  ]
+  ],
+  "bill": {
+    "value": 10000,
+    "currency": "EUR"
+  }
 }
