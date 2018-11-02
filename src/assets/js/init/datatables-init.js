@@ -8,13 +8,13 @@
 
 
 
-    $('#bootstrap-data-table').DataTable({
+    $('#bootstrap-data-currency-card').DataTable({
         lengthMenu: [[10, 20, 50, -1], [10, 20, 50, "All"]],
     });
 
 
 
-    $('#bootstrap-data-table-export').DataTable({
+    $('#bootstrap-data-currency-card-export').DataTable({
         dom: 'lBfrtip',
         lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
         buttons: [
