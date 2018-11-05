@@ -1,0 +1,52 @@
+<div class="card-header">
+    <strong>Add Category</strong>
+</div>
+<div class="card-body card-block">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-horizontal">
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="category-name" class=" form-control-label">
+                    Name
+                </label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input
+                        class="form-control"
+                        id="category-name"
+                        required
+                        #name="ngModel"
+                        name="name"
+                        ngModel>
+                <div *ngIf="name.invalid && name.touched"
+                     [ngClass]="{'alert alert-danger': name.invalid && name.touched}">
+                    <span>The field is required</span>
+                </div>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="category-value" class=" form-control-label">
+                    Limit
+                </label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input
+                        id="category-value"
+                        class="form-control"
+                        required
+                        #limit="ngModel"
+                        name="limit"
+                        [ngModel]="1"
+                        min="1">
+                <div *ngIf="limit.invalid && limit.touched"
+                     [ngClass]="{'alert alert-danger': limit.invalid && limit.touched}">
+                    <span>Min length 1</span>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm">
+            <i class="fa fa-dot-circle-o"></i> Add
+        </button>
+    </form>
+</div>
+
