@@ -3,12 +3,12 @@
 
         <div class="col-lg-3 col-md-6 size-icon">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body cards">
                     <div class="stat-widget-one">
                         <i class="fa fa-eur text-success border-success"></i>
                         <div class="stat-content dib">
                             <div class="stat-text">EUR</div>
-                            <div class="stat-digit">{{bill.value}}</div>
+                            <div class="stat-digit">{{bill.value | number: '1.2' }}</div>
                         </div>
                     </div>
                 </div>
@@ -16,12 +16,12 @@
         </div>
         <div class="col-lg-3 col-md-6 size-icon">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body cards">
                     <div class="stat-widget-one">
                         <i class="fa fa-money text-success border-success"></i>
                         <div class="stat-content dib">
                             <div class="stat-text">UAH</div>
-                            <div class="stat-digit">1,012</div>
+                            <div class="stat-digit">{{uah | number: '1.2'}}</div>
                         </div>
                     </div>
                 </div>
@@ -29,12 +29,12 @@
         </div>
         <div class="col-lg-3 col-md-6 size-icon">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body cards">
                     <div class="stat-widget-one">
                         <i class="fa fa-usd text-success border-success"></i>
                         <div class="stat-content dib">
                             <div class="stat-text">USD</div>
-                            <div class="stat-digit">1,012</div>
+                            <div class="stat-digit">{{usd | number: '1.2'}}</div>
                         </div>
                     </div>
                 </div>

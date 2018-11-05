@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './currency-cad.component.html',
-  styleUrls: ['./currency-card.component.scss']
+    selector: 'app-currency',
+    templateUrl: './currency-cad.component.html',
+    styleUrls: ['./currency-card.component.scss']
 })
-export class CurrencyCardComponent implements OnInit {
+export class CurrencyCardComponent {
 
-  constructor() { }
+    @Input() currency: any;
 
-  ngOnInit() {
-  }
+    currencies: string [] = ['USD', 'UAH'];
 
+    constructor() {
+    }
 }

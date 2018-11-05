@@ -10,5 +10,22 @@
   "bill": {
     "value": 10000,
     "currency": "EUR"
-  }
+  },
+  "categories": [
+    {
+      "name": "Home",
+      "limit": 150,
+      "id": 1
+    },
+    {
+      "name": "Food",
+      "limit": 120,
+      "id": 2
+    },
+    {
+      "name": "Car",
+      "limit": 1000,
+      "id": 3
+    }
+  ]
 }

@@ -1,8 +1,9 @@
 <button (click)="onRefresh()" type="button" class="btn btn-success fa fa-refresh"></button>
 
-<app-cards *ngIf="isLoaded"
-           [bill]="bill"
-           [currency]="currency">
-</app-cards>
+<div *ngIf="isLoaded" class="loaded">
 
-<app-table></app-table>
+    <app-cards [bill]="bill" [currency]="currency"></app-cards>
+
+    <app-currency [currency]="currency"></app-currency>
+
+</div>
