@@ -4,19 +4,37 @@
 <div class="card-body card-block">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-horizontal">
         <div class="row form-group">
+            <div class="col col-md-3"><label for="e-select-category" class=" form-control-label">Category</label></div>
+            <div class="col-12 col-md-9">
+                <select
+                        name="select"
+                        id="e-select-category"
+                        class="form-control"
+                        [(ngModel)]="currentCategoryId"
+                        (change)="onCategoryChange()">
+                    <option
+                            *ngFor="let c of categories"
+                            [value]="c.id"
+                    >
+                        {{c.name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="row form-group">
             <div class="col col-md-3">
-                <label for="category-name" class=" form-control-label">
+                <label for="e-category-name" class=" form-control-label">
                     Name
                 </label>
             </div>
             <div class="col-12 col-md-9">
                 <input
                         class="form-control"
-                        id="category-name"
+                        id="e-category-name"
                         required
                         #name="ngModel"
                         name="name"
-                        ngModel>
+                        [ngModel]="currentCategory.name">
                 <div *ngIf="name.invalid && name.touched"
                      [ngClass]="{'alert alert-danger': name.invalid && name.touched}">
                     <span>The field is required</span>
@@ -25,18 +43,18 @@
         </div>
         <div class="row form-group">
             <div class="col col-md-3">
-                <label for="category-value" class=" form-control-label">
+                <label for="e-category-value" class=" form-control-label">
                     Limit
                 </label>
             </div>
             <div class="col-12 col-md-9">
                 <input
-                        id="category-value"
+                        id="e-category-value"
                         class="form-control"
                         required
                         #limit="ngModel"
                         name="limit"
-                        [ngModel]="1"
+                        [ngModel]="currentCategory.limit"
                         min="1">
                 <div *ngIf="limit.invalid && limit.touched"
                      [ngClass]="{'alert alert-danger': limit.invalid && limit.touched}">
@@ -44,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-sm">
+        <button [disabled]="f.invalid" type="submit" class="btn btn-primary btn-sm">
             <i class="fa fa-dot-circle-o"></i> Edit
         </button>
     </form>

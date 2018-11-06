@@ -1,18 +1,25 @@
-<div class="forms">
+<div *ngIf="isLoaded" class="forms">
     <div class="col-lg-6">
         <div class="card">
-            <app-add-event></app-add-event>
+            <app-add-event
+                    [categories]="categories">
+            </app-add-event>
         </div>
     </div>
     <div class="col-lg-6">
         <div class="card">
-            <app-add-category (onCategoryAdd)="newCategoryAdded($event)"></app-add-category>
+            <app-add-category
+                    (onCategoryAdd)="newCategoryAdded($event)">
+            </app-add-category>
         </div>
     </div>
 </div>
 
-<div class="col-lg-6">
+<div *ngIf="isLoaded" class="col-lg-6">
     <div class="card">
-        <app-edit-category></app-edit-category>
+        <app-edit-category
+                [categories]="categories"
+                (categoryEdit)="categoryWasEdited($event)">
+        </app-edit-category>
     </div>
 </div>

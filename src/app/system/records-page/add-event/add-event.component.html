@@ -2,15 +2,21 @@
     <strong>Add Event</strong>
 </div>
 <div class="card-body card-block">
-    <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-horizontal">
         <div class="row form-group">
-            <div class="col col-md-3"><label for="select" class=" form-control-label">Category</label></div>
+            <div class="col col-md-3"><label for="category" class=" form-control-label">Category</label></div>
             <div class="col-12 col-md-9">
-                <select name="select" id="select" class="form-control">
-                    <option value="0">Please select</option>
-                    <option value="1">Option #1</option>
-                    <option value="2">Option #2</option>
-                    <option value="3">Option #3</option>
+                <select
+                        id="category"
+                        name="category"
+                        class="form-control"
+                        required
+                        [ngModel]="1">
+                    <option
+                            *ngFor="let c of categories"
+                            [value]="c.id">
+                        {{c.name}}
+                    </option>
                 </select>
             </div>
         </div>
@@ -18,16 +24,17 @@
             <div class="col col-md-3"><label class=" form-control-label">Type</label></div>
             <div class="col col-md-9">
                 <div class="form-check">
-                    <div class="checkbox">
-                        <label for="checkbox1" class="form-check-label ">
-                            <input type="checkbox" id="checkbox1" name="checkbox1" value="option1"
-                                   class="form-check-input">Revenue
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <label for="checkbox2" class="form-check-label ">
-                            <input type="checkbox" id="checkbox2" name="checkbox2" value="option2"
-                                   class="form-check-input">Expense
+                    <div class="checkbox" *ngFor="let t of types">
+                        <label for="type" class="form-check-label ">
+                            <input
+                                    type="radio"
+                                    id="type"
+                                    name="type"
+                                    class="form-check-input"
+                                    [value]="t.type"
+                                    required
+                                    [ngModel]="'outcome'">
+                            {{t.label}}
                         </label>
                     </div>
                 </div>
@@ -35,14 +42,31 @@
         </div>
         <div class="row form-group">
             <div class="col col-md-3">
-                <label for="password-input" class=" form-control-label">
+                <label for="amount" class=" form-control-label">
                     Sum
                 </label>
             </div>
             <div class="col-12 col-md-9">
-                <input id="password-input"
-                       name="password-input"
+                <input id="amount"
+                       name="amount"
+                       [ngModel]="1"
                        class="form-control">
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-md-3">
+                <label for="description" class=" form-control-label">
+                    Description
+                </label>
+            </div>
+            <div class="col-12 col-md-9">
+                <input
+                        id="description"
+                        name="description"
+                        class="form-control"
+                        ngModel
+                        type="text"
+                >
             </div>
         </div>
         <button type="submit" class="btn btn-primary btn-sm">

@@ -8,24 +8,58 @@
     }
   ],
   "bill": {
-    "value": 10000,
+    "value": 100,
     "currency": "EUR"
   },
   "categories": [
     {
       "name": "Home",
-      "limit": 150,
+      "limit": 1233,
       "id": 1
     },
     {
-      "name": "Food",
-      "limit": 120,
+      "name": "Foody",
+      "limit": 1205,
       "id": 2
     },
     {
       "name": "Car",
       "limit": 1000,
       "id": 3
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "type": "income",
+      "amount": 1250,
+      "category": 2,
+      "date": "12-06-2017 19:49:02",
+      "description": "Buy iPhone X"
+    },
+    {
+      "id": 2,
+      "type": "outcome",
+      "amount": 2000,
+      "category": 1,
+      "date": "12-06-2017 19:49:02",
+      "description": "Buy car"
+    },
+    {
+      "type": "income",
+      "amount": "1",
+      "category": 1,
+      "date": "06.11.2018 17:10:47",
+      "description": "sss",
+      "id": 3
+    },
+    {
+      "type": "income",
+      "amount": "50",
+      "category": 1,
+      "date": "06.11.2018 17:11:46",
+      "description": "sss",
+      "id": 4
     }
   ]
 }
