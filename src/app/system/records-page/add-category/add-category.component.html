@@ -17,10 +17,12 @@
                         #name="ngModel"
                         name="name"
                         ngModel>
+
                 <div *ngIf="name.invalid && name.touched"
                      [ngClass]="{'alert alert-danger': name.invalid && name.touched}">
                     <span>The field is required</span>
                 </div>
+
             </div>
         </div>
         <div class="row form-group">
@@ -31,6 +33,7 @@
             </div>
             <div class="col-12 col-md-9">
                 <input
+                        type="number"
                         id="category-value"
                         class="form-control"
                         required
@@ -38,10 +41,12 @@
                         name="limit"
                         [ngModel]="1"
                         min="1">
+
                 <div *ngIf="limit.invalid && limit.touched"
                      [ngClass]="{'alert alert-danger': limit.invalid && limit.touched}">
                     <span>Min length 1</span>
                 </div>
+
             </div>
         </div>
         <button [disabled]="f.invalid" type="submit" class="btn btn-primary btn-sm">

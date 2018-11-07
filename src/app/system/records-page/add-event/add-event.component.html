@@ -2,6 +2,11 @@
     <strong>Add Event</strong>
 </div>
 <div class="card-body card-block">
+    <div
+            class="alert alert-{{message.type}}"
+            *ngIf="message.text">
+        {{message.text}}
+    </div>
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-horizontal">
         <div class="row form-group">
             <div class="col col-md-3"><label for="category" class=" form-control-label">Category</label></div>
@@ -49,6 +54,7 @@
             <div class="col-12 col-md-9">
                 <input id="amount"
                        name="amount"
+                       type="number"
                        [ngModel]="1"
                        class="form-control">
             </div>

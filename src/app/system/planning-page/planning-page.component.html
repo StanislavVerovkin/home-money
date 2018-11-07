@@ -1,3 +1,21 @@
-<p>
-  planning-page works!
-</p>
+<div *ngIf="isLoaded" class="col-lg-6">
+    <div class="card">
+        <div class="card-header">
+            <h4>Total on bill: <strong>{{bill.value | number: '1.2'}} EUR</strong></h4>
+        </div>
+        <div class="card-body">
+            <div *ngFor="let c of categories" class="progress mb-3">
+                <div class="progress-bar bg-{{getCatColor(c)}}" [ngStyle]="{width: getCatPercent(c)}">
+                    <strong>{{c.name}}</strong>
+                </div>
+                <!--<span class="text-{{getCatColor(c)}}">{{getCategoryCost(c) | number: '1.2'}} from</span>-->
+                <!--<div>-->
+                    <!--{{c.limit | number: '1.2'}}-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--rest: {{c.limit - getCategoryCost(c) | number: '1.2'}}-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>

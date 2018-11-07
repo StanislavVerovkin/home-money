@@ -7,6 +7,7 @@ import {EventsService} from '../../shared/services/events.service';
 import {BillService} from '../../shared/services/bill.service';
 import {Bill} from '../../shared/models/bill.model';
 import {mergeMap} from 'rxjs/operators';
+import {Message} from '../../../shared/models/message.model';
 
 @Component({
     selector: 'app-add-event',
@@ -14,6 +15,7 @@ import {mergeMap} from 'rxjs/operators';
     styleUrls: ['./add-event.component.scss']
 })
 export class AddEventComponent implements OnInit {
+
     @Input() categories: Category[] = [];
 
     types = [
@@ -21,11 +23,19 @@ export class AddEventComponent implements OnInit {
         {type: 'outcome', label: 'Expense'}
     ];
 
+    public message: Message;
+
     constructor(private eventsService: EventsService,
                 private billService: BillService) {
     }
 
     ngOnInit() {
+        this.message = new Message('danger', '');
+    }
+
+    private showMessage(text: string) {
+        this.message.text = text;
+        window.setTimeout(() => this.message.text = '', 5000);
     }
 
     onSubmit(form: NgForm) {
@@ -46,7 +56,9 @@ export class AddEventComponent implements OnInit {
 
                 if (type === 'outcome') {
                     if (amount > bill.value) {
+                        this.showMessage(`No enough money. Need ${amount - bill.value}`);
                         console.log('no money');
+                        return;
                     } else {
                         value = bill.value - amount;
                         console.log('minus');
